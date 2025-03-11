@@ -5,6 +5,9 @@
     h1{
         font-size: 20px;
     }
+    .loader{
+        margin-top: 20px;
+    }
 }
 
 body{
