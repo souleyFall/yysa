@@ -1,0 +1,122 @@
+/*contact*/
+
+.header-mobile{
+    position: relative;
+    background: #856043;
+    color: white;
+    width: 100%;
+    height: 10em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.header-mobile button{
+    border: solid transparent;
+    border-radius: 20px;
+    width: 20vh;
+    height: 5vh;
+    background-color: #edd6b2;
+    color: #734D12;
+}
+
+.contact{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 110px;
+    justify-content: space-between;
+    color: black;
+    background: rgb(235, 229, 229);
+    padding: 40px 10px 0px 0px;
+    margin: -10px 0px 0px -10px;
+    z-index: 10;
+}
+
+.mail-tel{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-left: 10vh;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.social-media-logo{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    margin-right: 5vh;
+}
+
+/*fin contact*/
+
+/*début barre nav*/
+.barre-nav{
+    position: absolute;
+    display: flex;
+    width: 90%;
+    height: 150px;
+    margin: -4em 0em 0em 5%;
+    justify-content: space-between;
+    align-items: center;
+    background: #EEC487;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-right: 10vh;
+    font-size: 3vh;
+}
+
+.barre-nav img{
+    margin-left: 3em;
+}
+/*fin barre nav*/
+
+/*début banderolle*/
+
+.banderolle{
+    margin: 0px 0px 0px -10px;
+}
+
+.brand{
+    position: absolute;
+    width: 100%;
+    margin-top: -11em;
+    margin-left: 1em;
+    color: white;
+    font-size: 4vw;
+}
+
+.ecran{
+    background: black;
+    height: 52.5em;
+    margin-top: -53em;
+    opacity: 0.7;
+}
+.brand button{
+    border: solid transparent;
+    width: 20vw;
+    height: 5vw;
+    font-size: 1.8vw;
+}
+.brand button:first-of-type{
+    background-color: #734D12;
+    color: white;
+}
+
+.brand :last-child{
+    background-color: white;
+    color: #734D12;
+}
+/*fin banderolle*/
+
