@@ -2,10 +2,12 @@ let header = document.querySelector("header");
 let header_mobile=
 `
 <div class="header-mobile">
-    <img src="rsc/logo_yysa.jpg" width="25%" height="50%" alt="logo"></img>
-    <button type="button">Faire un don</button>
-    <svg xmlns="http://www.w3.org/2000/svg" width="25%" height="25%" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+    <img src="rsc/logo_yysa.jpg" width="80dvw" height="70dvh" alt="logo"></img>
+    <button type="button">
+    Faire un don
+    </button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="10dvw" height="10dvh" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
     </svg>
 </div>
 `;
