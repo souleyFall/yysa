@@ -348,7 +348,9 @@ nav{
     justify-content: center;
     margin: 2.5dvw;
 }
-
+.soutien a {
+    text-decoration: none;
+}
 .soutien p{
     font-size: 1.5dvw;
 }
