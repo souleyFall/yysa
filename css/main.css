@@ -353,6 +353,7 @@ nav{
 }
 .soutien p{
     font-size: 1.5dvw;
+    text-decoration: none;
 }
 
 @media screen and (max-width:768px) { 
