@@ -11,7 +11,6 @@
 </head>
 <body>
     <header>
-
         <!------------- Début contact ------------>
         <div class="contact">
             <div class="mail-tel">
@@ -67,7 +66,11 @@
         <!------------- Fin section logo-nav ------------>
 
     </header>
-
+    <div class="toast" onclick="open_form()">
+        <div class="notifs"></div>
+        <p>👋</p>
+    </div>
+    </a>
     <section>
 
         <!------------- Début section banderolle yysa ------------>
@@ -296,5 +299,27 @@
             </div>
         </div>
     </footer>
+    <div id="overlay">
+        <div id="form">
+            <button id="icon_close" onclick="close_form()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg>
+            </button>
+            <form class="form">
+                <span class="title">Sign up</span>
+                <span class="subtitle">Create a free account with your email.</span>
+                <div class="form-container">
+                    <input type="text" class="input" placeholder="Full Name">
+                    <input type="email" class="input" placeholder="Email">
+                    <input type="password" class="input" placeholder="Password">
+                </div>
+                <button>Sign up</button>
+            </form>
+            <div class="form-section">
+                <p>Have an account? <a href="">Log in</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
