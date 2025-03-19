@@ -66,6 +66,18 @@ let header_laptop=
         </div>
         <!------------- Fin section logo-nav ------------>
 `;
+
+document.getElementById('overlay').style.display='none';
+
+function close_form(){
+    document.getElementById('overlay').style.display='none';
+}
+
+/* fait apparaitre le pop-in */
+function open_form(){
+    document.getElementById('overlay').style.display='flex';
+}
+
 function setHeader(){
     if(window.innerWidth<768){
         header.innerHTML = header_mobile;
