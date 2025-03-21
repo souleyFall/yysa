@@ -478,43 +478,43 @@ body{
 
 /* Formulaire */
 #form {
-    max-width: 300px;
-    background: #f1f7fe;
+    max-width: 500px;
+    background: var(--light-theme);
     overflow: hidden;
     border-radius: 16px;
-    color: #010101;
-  }
-  
-  .form {
+    color: var(--brown-theme);
+}
+
+.form {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 32px 24px 24px;
-    gap: 16px;
+    padding: 50px 50px 50px 50px;
+    gap: 15px;
     text-align: center;
-  }
-  
-  /*Form text*/
-  .title {
+}
+
+/*Form text*/
+.title {
     font-weight: bold;
     font-size: 1.6rem;
-  }
-  
-  .subtitle {
+}
+
+.subtitle {
     font-size: 1rem;
     color: #666;
-  }
-  
-  /*Inputs box*/
-  .form-container {
+}
+
+/*Inputs box*/
+.form-container {
     overflow: hidden;
     border-radius: 8px;
     background-color: #fff;
     margin: 1rem 0 .5rem;
     width: 100%;
-  }
-  
-  .input {
+}
+
+.input {
     background: none;
     border: 0;
     outline: 0;
@@ -523,30 +523,23 @@ body{
     border-bottom: 1px solid #eee;
     font-size: .9rem;
     padding: 8px 15px;
-  }
-  
-  .form-section {
+}
+
+.form-section {
     padding: 16px;
-    font-size: .85rem;
-    background-color: #e0ecfb;
-    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
-  }
-  
-  .form-section a {
+    font-size: 1.5em;
+}
+
+.form-section a {
     font-weight: bold;
-    color: #0066ff;
+    color: var(--brown-theme);
     transition: color .3s ease;
-  }
-  
-  .form-section a:hover {
-    color: #005ce6;
-    text-decoration: underline;
-  }
-  
-  /*Button*/
-  .form button {
-    background-color: #0066ff;
-    color: #fff;
+}
+
+/*Button*/
+.form button {
+    background-color: var(--brown-theme);
+    color: var(--light-theme);
     border: 0;
     border-radius: 24px;
     padding: 10px 16px;
@@ -554,11 +547,12 @@ body{
     font-weight: 600;
     cursor: pointer;
     transition: background-color .3s ease;
-  }
-  
-  .form button:hover {
-    background-color: #005ce6;
-  }
+}
+
+.form button:hover {
+    background-color: var(--logo-theme);
+    color: var(--light-theme);
+}
 /*Fin formulaire*/
 
 #overlay{
@@ -571,6 +565,31 @@ body{
     background: rgba(0,0,0,0.5);
     justify-content: center;
     align-items: center;
+}
+
+#icon-close{
+    border: solid transparent;
+    background-color: var(--light-theme);
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    color: var(--brown-theme);
+    padding-top: 25px;
+    padding-right: 20px;
+}
+
+#icon-close-hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+#icon-close-hover:hover{
+    background-color: var(--brown-theme);
+    color: var(--light-theme);
 }
 
 /* FIN
