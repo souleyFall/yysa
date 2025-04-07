@@ -113,7 +113,7 @@ function aosInit() {
 window.addEventListener('load', aosInit);
 
 function sendEmail() {
-    fetch("https://yysa.onrender.com/send-email", {
+    fetch("http://45.147.251.120:5000/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
