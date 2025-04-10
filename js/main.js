@@ -70,7 +70,7 @@ let header_laptop=
 
         <!------------- Début section logo-nav ------------>
         <div class="barre-nav">
-            <img src="rsc/logo.jpg" width="100" height="100" alt="logo">
+            <img src="rsc/final-logo.png" width="90" height="100" alt="logo">
             <nav>
                 <a href="http://">ACCUEIL</a>
                 <a href="http://">MISSIONS</a>
