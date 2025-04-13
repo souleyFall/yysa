@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 :root{
     --brown-theme : #734D12;
-    --light-theme : #eec487;
+    --light-theme : #EEC487;
     --logo-theme : #856043;
+    --dancing-style : 'Dancing Script', cursive;
+    --lora-font: "Lora", serif;
+    --arimo-font: "Arimo", sans-serif;
 }
 
 a{
@@ -48,15 +52,22 @@ a{
     margin-left: 5dvw;
 }
 
+.mail-tel a{
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--lora-font);
+}
+
 nav a{
     color: white;
     text-decoration: none;
+    font-family: var(--lora-font);
 }
 
-.social-media-logo{
+.header-social-media-logo{
     display: flex;
     width: 150px;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-right: 5dvw;
 }
 
@@ -112,6 +123,7 @@ nav{
     position: absolute;
     z-index: 10;
     margin-top: 15dvh;
+    font-family: var(--arimo-font);
 }
 
 .ecran{
@@ -122,10 +134,12 @@ nav{
 }
 .brand button{
     border: solid transparent;
-    width: 22dvw;
-    height: 8dvw;
+    width: 24dvw;
+    height: 7dvw;
     font-size: 2.5dvw;
     border-radius: 20px;
+    font-family: var(--lora-font);
+    font-weight: bold;
 }
 .brand button:first-of-type{
     background-color: var(--brown-theme);
@@ -155,12 +169,14 @@ nav{
 .domaine-action{
     padding-top: 5dvw;
     padding-bottom: 5dvw;
+    font-family: var(--lora-font);
 }
 
 .domaine-action h1{
     text-align: center;
     color: var(--brown-theme);
-    font-size: 3dvw;
+    font-size: 2em;
+    font-family: var(--dancing-style);
 }
 
 .hr{
@@ -185,19 +201,21 @@ nav{
 
 .domaine-action-card .card{
     margin-top: 5dvw;
-    width: 40dvh;
-    text-align: center;
+    width: 20em;
+    text-align:justify;
     color: lightgray;
 }
 
-.domaine-action h2, .domaine-action a{
+.domaine-action h2, .domaine-action a, .da-img{
     color: var(--brown-theme);
+    font-weight: bold;
+    text-decoration: none;
     text-align: center;
 }
 
 @media screen and (max-width:768px) { 
     .domaine-action h1{
-        font-size:6dvw;
+        font-size:1.6em;
     }
     .domaine-action-card .card{
         margin-top: 12dvw;
@@ -210,14 +228,15 @@ nav{
 
 .missions{
     background: #F1F0F0;
-    padding-top: 5dvw;
-    padding-bottom: 5dvw;
+    padding-top: 2em;
+    padding-bottom: 10em;
 }
 
 .missions h1{
     text-align: center;
     color: var(--brown-theme);
-    font-size: 3dvw;
+    font-size: 2em;
+    font-family: var(--dancing-style);
 }
 
 .missions .card{
@@ -244,7 +263,7 @@ nav{
 }
 @media screen and (max-width:768px) { 
     .missions h1{
-        font-size: 6dvw;
+        font-size: 1.6em;
     }
     .missions .card:nth-child(even){
         flex-wrap: wrap-reverse;
@@ -257,10 +276,46 @@ nav{
 
 /*fin mission*/
 
+/*début chiffre asso*/
+.asso-chiffre{
+    display: flex;
+    flex-wrap: wrap;
+    border: solid;
+    border-color: var(--brown-theme);
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 60px;
+    border-width: 5px;
+    z-index: 10;
+    margin : -97px 0 10px 5%;
+    background-color: white;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.asso-chiffre-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.asso-chiffre-item h1{
+    color: var(--brown-theme);
+    font-size: 2.7em;
+    font-family:var(--dancing-style);
+}
+
+.asso-chiffre-item p{
+    font-size: 1.7em;
+}
+
+/*fin chiffr asso*/
+
 /*nouveautés*/
 .nouveautés{
     color: var(--brown-theme);
-    padding: 1dvw 0 2dvw 0;
+    padding: 5dvh 0 2dvw 0;
     margin-bottom: 5dvw;
 }
 
@@ -273,10 +328,12 @@ nav{
 .nouveautés h1{
     font-size: 3dvw;
     text-align: center;
+    font-family:var(--dancing-style);
 }
 
 .nouveautés h2{
     margin-bottom: -1.5dvw;
+    font-family: var(--lora-font);
 }
 
 .nouveautés img{
@@ -298,7 +355,7 @@ nav{
         margin-top: 10dvw;
     }
     .nouveautés h1{
-        font-size: 6dvw;
+        font-size: 1.6em;
         margin-bottom: -5dvw;
     }
     .nouveautés-card{
@@ -319,7 +376,7 @@ nav{
 }
 /*fin nouveautés*/
 
-/*soutenir l'assoc*/
+/*soutenir l'assoc
 .soutien{
     background: var(--light-theme);
     color: var(--logo-theme);
@@ -377,65 +434,99 @@ nav{
     }
 }
 
-/*fin soutenir l'assoc*/
+fin soutenir l'assoc*/
+
+/*TESTIMONIALS*/
+.swiper{
+    background-color: #F7E1C3;
+}
+
+.swiper h1{
+    font-size: 2em;
+    text-align: center;
+    font-family:var(--dancing-style);
+}
+
+.swiper-slide{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 5em;
+}
+.slide-card-item{
+    width: 36%;
+    margin-left: 32%;
+    border: solid;
+    border-color: var(--brown-theme);
+    background: whitesmoke;
+    border-radius: 20px;
+    padding: 1.5em;
+}
+
+.slide-card-item span{
+    font-weight: normal;
+}
+
+.swiper-button-prev, .swiper-button-next, .swiper-pagination{
+ color: var(--brown-theme);
+}
+/*FIN TESTIMONIALS*/
 
 /*footer*/
 footer{
     display: flex;
     justify-content: space-around;
-    height: 20dvw;
     align-items: center;
     background: var(--brown-theme);
     color: white;
+    padding-top:  60px;
+    padding-bottom: 60px;
 }
 
 .social-media-card{
     text-align: center;
+    width: 30dvw;
+}
+
+.footer-social-media-logo{
+    display: flex;
+    justify-content: space-between;
 }
 
 .social-media-card a{
     color: var(--light-theme);
-    width: 50dvw;
-}
-
-.social-media-card .social-media-logo{
-    width: 50dvw;
 }
 
 .newsletters{
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 20em;
+    
 }
 
 .newsletters input{
-    height: 3dvw;
-    width: 25dvw;
-    border-radius: 20px;
+    height: 2.5em;
+    width: 20em;
+    border-radius: 15px;
+    padding-left: 1em;
 }
 
 .newsletters button{
     border: solid transparent;
     background-color: var(--light-theme);
-    color: white;
-    height: 4dvw;
-    width: 10dvw;
-    font-size: 1.5dvw;
-    border-radius: 20px;
+    color: var(--brown-theme);
+    height: 2em;
+    width: 5em;
+    font-size: 1.2em;
+    border-radius: 30px;
 
 }
 
 @media screen and (max-width:768px) { 
     footer{
         flex-wrap: wrap;
-        height: 50dvw;
-    }
-    .newsletters input{
-        height: 10dvw;
-        width: 70dvw;
-    }
-    .newsletters button{
-        height: 10dvw;
-        width: 20dvw;
-        font-size: 4dvw;
     }
 }
 
