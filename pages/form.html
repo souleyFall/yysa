@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'adhésion YYSA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+        :root {
+            --brown-theme: #734D12;
+            --light-theme: #EEC487;
+            --dancing-style: 'Dancing Script', cursive;
+            --lora-font: "Lora", serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light-theme);
+            font-family: var(--lora-font);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: var(--dancing-style);
+            color: var(--brown-theme);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .language-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .language-section h2 {
+            color: var(--brown-theme);
+            font-family: var(--dancing-style);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--brown-theme);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        .date-inputs {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--lora-font);
+            font-size: 16px;
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .date-input {
+            width: 33%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .checkbox-group {
+            margin-top: 15px;
+        }
+
+        .checkbox-item {
+            margin-bottom: 3px;
+            display: flex;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-item input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .required::after {
+            content: " *";
+            color: red;
+        }
+
+        button {
+            background-color: var(--brown-theme);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: var(--lora-font);
+            transition: background-color 0.3s;
+            display: block;
+            margin: 30px auto 0;
+            width: 200px;
+        }
+
+        button:hover {
+            background-color: #5e3d0e;
+        }
+
+        .comment-section {
+            margin-top: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--lora-font);
+            font-size: 16px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h2 {
+            font-family: var(--dancing-style);
+            color: var(--brown-theme);
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .custom-option {
+            margin-top: 10px;
+        }
+
+        #customSkill {
+            padding: 8px;
+            margin-left: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h2>YYSA</h2>
+        </div>
+        
+        <div class="header">
+            <h1>Formulaire d'adhésion | Adhesion Form</h1>
+        </div>
+
+        <div class="language-section">
+            <h2>Fr - Rejoignez YYSA et faites la différence !</h2>
+            <p>Vous êtes passionné(e) par l'idée d'avoir un impact positif dans votre communauté et au-delà ? En rejoignant <em>Yeewu Yittel Sunu Askan</em> (YYSA), vous intégrez un réseau dynamique de volontaires sénégalais engagés pour le changement. Ensemble, nous relevons des défis importants, défendons des causes essentielles et inspirons des actions pour un avenir meilleur.</p>
+            <p>Que vous soyez au Sénégal ou à l'étranger, vos compétences uniques, vos idées et votre engagement peuvent contribuer à notre mission. Remplissez ce formulaire pour devenir officiellement membre de YYSA et travaillons main dans la main pour bâtir une communauté plus forte et solidaire !</p>
+        </div>
+
+        <div class="language-section">
+            <h2>Eng - Join YYSA and Make a Difference!</h2>
+            <p>Are you passionate about making an impact in your community and beyond? By joining Yeewu Yittel Sunu Askan (YYSA), you become part of a dynamic network of Senegalese volunteers working towards meaningful change. Together, we tackle critical issues, champion important causes, and inspire action for a better future.</p>
+            <p>Whether you're in Senegal or abroad, your unique skills, ideas, and dedication can contribute to our mission. Fill out this form to officially join YYSA, and let's work hand in hand to build a stronger, more united community!</p>
+            <p>We're excited to welcome you to our family of changemakers.</p>
+        </div>
+
+        <form id="adhesionForm">
+            <div class="form-section">
+                <div class="form-group">
+                    <label class="required" for="name">Prénom(s) | Nom</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="required" for="email">Adresse e-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="required" for="instagram">Votre @ sur insta</label>
+                    <input type="text" id="instagram" name="instagram" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="required" for="address">Adresse</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="required" for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="required" for="birthdate">Votre date de naissance</label>
+                    <div class="date-inputs">
+                        <input type="text" class="date-input" id="day" name="day" placeholder="JJ" maxlength="2" required>
+                        <input type="text" class="date-input" id="month" name="month" placeholder="MM" maxlength="2" required>
+                        <input type="text" class="date-input" id="year" name="year" placeholder="YYYY" maxlength="4" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Quels sont vos domaines de compétences ? What are your areas of expertise?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="videoEditing" name="skills" value="Edition Vidéo">
+                            <label for="videoEditing">Edition Vidéo / Video Editing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="graphicDesign" name="skills" value="Design graphique">
+                            <label for="graphicDesign">Design graphique, création de visuels (sur des outils comme Canva) / Graphic design (using tools like Canva)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="socialMedia" name="skills" value="Gestion des réseaux sociaux">
+                            <label for="socialMedia">Gestion des réseaux sociaux (animations des stories etc...) / Social Media Management</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="networking" name="skills" value="Networking">
+                            <label for="networking">Networking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="partnerships" name="skills" value="Partenariats">
+                            <label for="partnerships">Partenariats / Partnerships</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="projectDesign" name="skills" value="Conception et planification de programme">
+                            <label for="projectDesign">Conception et planification de programme / Project design and planning</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="fundraising" name="skills" value="Collecte de fonds">
+                            <label for="fundraising">Collecte de fonds / Fundraisings</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="reportWriting" name="skills" value="Rédaction de rapports">
+                            <label for="reportWriting">Rédaction de rapports / Report writing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="eventOrganization" name="skills" value="Organisation d'évènements et logistique">
+                            <label for="eventOrganization">Organisation d'évènements et logistique / Event organization and logistics</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="donationsCampaign" name="skills" value="Campagne de dons">
+                            <label for="donationsCampaign">Campagne de dons / Donations campaign</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="resourcesCoordination" name="skills" value="Coordination des ressources">
+                            <label for="resourcesCoordination">Coordination des ressources / Resources coordination</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="moderation" name="skills" value="Modération">
+                            <label for="moderation">Modération (de conférences ou webinaires) / Conference or Webinar moderation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="fundsManagement" name="skills" value="Gestion de fonds">
+                            <label for="fundsManagement">Gestion de fonds / Funds management</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="copywriting" name="skills" value="Rédaction Web">
+                            <label for="copywriting">Rédaction Web / Copywriting</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="webDevelopment" name="skills" value="Développement Web">
+                            <label for="webDevelopment">Développement Web / Web Development</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="other" name="skills" value="Autre">
+                            <label for="other">Autre :</label>
+                        </div>
+                        <div class="custom-option" id="customSkillContainer" style="display: none;">
+                            <input type="text" id="customSkill" placeholder="Précisez votre compétence / Specify your skill">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">En tant que membre, vous serez tenu(e) de cotiser 1 000 francs CFA, 5 dollars américains, 5 dollars canadiens, 5 euros chaque mois. Acceptez-vous cette condition ? <br>As a member, you are required to contribute 1,000 CFA francs, 5 US dollars, 5 CA dollars and 5 euros monthly. Do you agree to this condition?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="agreeYes" name="agree" value="Yes" required>
+                            <label for="agreeYes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="agreeNo" name="agree" value="No">
+                            <label for="agreeNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group comment-section">
+                    <label for="comments">Commentaires</label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Soumettre / Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Display custom skill input when "Other" is checked
+            const otherCheckbox = document.getElementById('other');
+            const customSkillContainer = document.getElementById('customSkillContainer');
+            
+            otherCheckbox.addEventListener('change', function() {
+                customSkillContainer.style.display = this.checked ? 'block' : 'none';
+            });
+            
+            // Date input validation
+            const dayInput = document.getElementById('day');
+            const monthInput = document.getElementById('month');
+            const yearInput = document.getElementById('year');
+            
+            dayInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (parseInt(this.value) > 31) {
+                    this.value = '31';
+                }
+            });
+            
+            monthInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (parseInt(this.value) > 12) {
+                    this.value = '12';
+                }
+            });
+            
+            yearInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+            
+            // Form submission
+            const form = document.getElementById('adhesionForm');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate required fields
+                const requiredFields = form.querySelectorAll('[required]');
+                let valid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        valid = false;
+                        field.style.borderColor = 'red';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                // Validate at least one skill is selected
+                const skillCheckboxes = document.querySelectorAll('input[name="skills"]:checked');
+                if (skillCheckboxes.length === 0) {
+                    valid = false;
+                    alert("Veuillez sélectionner au moins une compétence / Please select at least one skill");
+                }
+                
+                // Validate date
+                const day = parseInt(dayInput.value);
+                const month = parseInt(monthInput.value);
+                const year = parseInt(yearInput.value);
+                
+                if (isNaN(day) || day < 1 || day > 31 || 
+                    isNaN(month) || month < 1 || month > 12 || 
+                    isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
+                    valid = false;
+                    alert("Veuillez entrer une date valide / Please enter a valid date");
+                }
+                
+                if (valid) {
+                    alert("Merci pour votre adhésion ! Nous vous contacterons bientôt. / Thank you for your membership! We will contact you soon.");
+                    form.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
