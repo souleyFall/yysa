@@ -17,27 +17,64 @@ a{
     position: relative;
     background: var(--logo-theme);
     color: white;
-    width: 100dvw;
-    height: 17dvh;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.header-mobile button{
-    border: solid transparent;
-    border-radius: 20px;
-    width: 33dvw;
-    height:10dvh;
-    font-size: 4dvw;
-    background-color: var(--light-theme);
-    color: var(--brown-theme);
+.header-mobile h1{
+    color: var(--light-theme);
+    font-family: var(--dancing-style);
 }
+
+/*Menu dréoulant*/
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    border-radius: 5px;
+    display: none;
+    z-index: 100;
+}
+
+.dropdown-menu.active {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    color: #8B6B45;
+}
+/*Fin menu déroulane*/
 
 .contact{
     position: relative;
     display: flex;
-    width: 100dvw;
+    width: 100%;
     height: 100px;
     justify-content: space-between;
     color: black;
@@ -47,9 +84,9 @@ a{
 
 .mail-tel{
     display: flex;
-    justify-content: space-between;
-    width: 37dvw;
-    margin-left: 5dvw;
+    gap: 45px;
+    width: 90dvw;
+    margin-left: 10dvw;
 }
 
 .mail-tel a{
@@ -68,7 +105,7 @@ nav a{
     display: flex;
     width: 150px;
     justify-content: space-around;
-    margin-right: 5dvw;
+    margin-right: 10dvw;
 }
 
 /*fin contact*/
@@ -140,15 +177,13 @@ nav{
     border-radius: 20px;
     font-family: var(--lora-font);
     font-weight: bold;
-}
-.brand button:first-of-type{
-    background-color: var(--brown-theme);
-    color: white;
-}
-
-.brand :last-child{
     background-color: white;
     color: var(--brown-theme);
+}
+
+.brand a:first-of-type button{
+    background-color: var(--brown-theme);
+    color: white;
 }
 
 @media screen and (max-width:768px) { 
@@ -315,18 +350,18 @@ nav{
 /*nouveautés*/
 .nouveautés{
     color: var(--brown-theme);
-    padding: 5dvh 0 2dvw 0;
+    padding: 0 0 2dvw 0;
     margin-bottom: 5dvw;
 }
 
 .nouveautés-card{
     display: flex;
     justify-content: space-around;
-    margin-top: 1dvw;
+    margin-top: 3.5em;
 }
 
 .nouveautés h1{
-    font-size: 3dvw;
+    font-size: 2.7em;
     text-align: center;
     font-family:var(--dancing-style);
 }
@@ -349,29 +384,23 @@ nav{
 
 @media screen and (max-width:768px) { 
     .nouveautés{
-        margin-bottom: 10dvw;
-    }
-    .nouveautés .hr{
-        margin-top: 10dvw;
+        margin-bottom: 3em;
     }
     .nouveautés h1{
-        font-size: 1.6em;
-        margin-bottom: -5dvw;
+        font-size: 2.5em;  
     }
     .nouveautés-card{
         flex-wrap: wrap;
     }
     .nouveautés h2{
-        font-size: 3dvw;
-        margin-bottom: -3dvw;
+        font-size: 2.9em;
     }
     .nouveautés .card{
-        width: 70dvh;
-        margin-top: 10dvw;
+        width: 70%;
     }
     .nouveautés img{
-        width: 70dvw;
-        height: 45dvw;
+        width: 100%;
+        height: 70%;
     }
 }
 /*fin nouveautés*/
@@ -451,15 +480,16 @@ fin soutenir l'assoc*/
     text-align: center;
     margin-top: 1em;
     margin-bottom: 5em;
+    width: 100%;
 }
 .slide-card-item{
-    width: 36%;
-    margin-left: 32%;
+    width: 50%;
+    margin-left: 25%;
     border: solid;
     border-color: var(--brown-theme);
     background: whitesmoke;
     border-radius: 20px;
-    padding: 1.5em;
+    padding: 2em 0 2em 0;
 }
 
 .slide-card-item span{
@@ -469,6 +499,14 @@ fin soutenir l'assoc*/
 .swiper-button-prev, .swiper-button-next, .swiper-pagination{
  color: var(--brown-theme);
 }
+
+@media screen and (max-width:768px) { 
+    .slide-card-item{
+        width: 76%;
+        margin-left: 12%;
+    }
+}
+
 /*FIN TESTIMONIALS*/
 
 /*footer*/
@@ -480,11 +518,39 @@ footer{
     color: white;
     padding-top:  60px;
     padding-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-contact{
+    width: 30em;
+    font-family: var(--lora-font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.footer-contact a{
+    color: white;
+    text-decoration: none;
+    margin-bottom: -2em;
+    font-family: var(--lora-font);
+}
+
+.footer-contact .tel{
+    margin-bottom: -2em;
+    margin-top: -2em;
+}
+
+.footer-contact h2{
+    margin-top: 3em;
+    font-family: var(--lora-font);
+    text-decoration: underline;
 }
 
 .social-media-card{
     text-align: center;
-    width: 30dvw;
+    width: 40%;
 }
 
 .footer-social-media-logo{
@@ -503,7 +569,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     height: 20em;
-    
+    width: 30em;
 }
 
 .newsletters input{
@@ -524,15 +590,9 @@ footer{
 
 }
 
-@media screen and (max-width:768px) { 
-    footer{
-        flex-wrap: wrap;
-    }
-}
-
 @media screen and (max-width:480px) { 
     footer{
-        padding: 5dvw 0 5dvw 0;
+        padding: 1em 0 1em 0;
     }
 }
 
@@ -541,9 +601,14 @@ footer{
 body{
     margin: 0;
     padding: 0;
-    padding-right: 0;
+}
+  
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
+/*toast 👋 */
 .toast{
     border: solid transparent;
     background: var(--brown-theme);
@@ -562,13 +627,32 @@ body{
     border-radius: 50%;
     width: 10px;
     height: 10px;
-    background: red;
+    background: var(--light-theme);
 }
 
 .toast p{
     font-size: 50px;
     margin-top: -15px;
     margin-left: -3px;
+}
+
+@media screen and (max-width:480px) { 
+    .toast{
+        width: 45px;
+        height: 45px;
+        bottom: 25px;
+        right: 25px;
+    }
+    .toast p{
+        font-size: 30px;
+        margin-top: -0.5em;
+        margin-left: -1.5px;
+    }
+    .notifs{
+        width: 10px;
+        height: 10px;
+        background: var(--light-theme);
+    }
 }
 
 /* Formulaire */
