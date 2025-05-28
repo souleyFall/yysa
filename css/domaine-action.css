@@ -1,0 +1,162 @@
+.domaine-action{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: #fafafa;
+    color: #333;
+}
+
+.domaine-action .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: transparent;
+    padding: 0;
+}
+
+.domaine-action h1 {
+    font-size: 2em;
+    color: #734D12;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.domaine-action .domains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.domaine-action .domain {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(133, 96, 67, 0.1);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.domaine-action .domain:hover {
+    box-shadow: 0 4px 16px rgba(133, 96, 67, 0.08);
+    transform: translateY(-2px);
+}
+
+.domaine-action h2 {
+    font-size: 1.2em;
+    color: #734D12;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.domaine-action .icon {
+    margin-right: 0.5rem;
+    font-size: 1.1em;
+}
+
+.domaine-action .description {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.domaine-action .actions-title {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #856043;
+    margin: 1rem 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.domaine-action ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.domaine-action li {
+    background: rgba(238, 196, 135, 0.1);
+    margin: 0.3rem 0;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #734D12;
+    transition: background-color 0.2s ease;
+    border-left: 2px solid transparent;
+}
+
+.domaine-action li:hover {
+    background: rgba(238, 196, 135, 0.2);
+    border-left-color: #856043;
+}
+
+.domaine-action .quote-section {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(133, 96, 67, 0.1);
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.domaine-action .quote {
+    background: linear-gradient(135deg, rgba(133, 96, 67, 0.05) 0%, rgba(115, 77, 18, 0.05) 100%);
+    color: #734D12;
+    padding: 1rem;
+    border-radius: 6px;
+    font-style: italic;
+    border-left: 3px solid #EEC487;
+}
+
+.domaine-action .quote-text {
+    font-size: 1em;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.domaine-action .quote-meaning {
+    font-size: 0.9em;
+    opacity: 0.8;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .domaine-action {
+        padding: 1rem;
+    }
+    
+    .domaine-action .domains-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .domaine-action .domain {
+        padding: 1rem;
+    }
+    
+    .domaine-action h1 {
+        font-size: 1.6em;
+        margin-bottom: 1.5rem;
+    }
+    
+    .domaine-action h2 {
+        font-size: 1.1em;
+    }
+    
+    .domaine-action .description {
+        font-size: 0.9em;
+    }
+}
+
+/* Pour s'adapter à différents thèmes de site */
+.domaine-action .light-theme {
+    background: #fff;
+}
+
+.dark-theme .domain {
+    background: rgba(255, 255, 255, 0.95);
+}
