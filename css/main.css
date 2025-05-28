@@ -179,6 +179,12 @@ nav{
     font-weight: bold;
     background-color: white;
     color: var(--brown-theme);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.brand-button:hover{
+    transform: translateY(-10px);
 }
 
 .brand a:first-of-type button{
@@ -198,66 +204,6 @@ nav{
     }
 }
 /*fin banderolle*/
-
-/*domaine d'action*/
-
-.domaine-action{
-    padding-top: 5dvw;
-    padding-bottom: 5dvw;
-    font-family: var(--lora-font);
-}
-
-.domaine-action h1{
-    text-align: center;
-    color: var(--brown-theme);
-    font-size: 2em;
-    font-family: var(--dancing-style);
-}
-
-.hr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -1dvw;
-}
-.hr-t{
-    width: 25dvh;
-    height: 0.5dvh;
-    border-radius: 20px;
-    background: var(--brown-theme);
-}
-
-
-.domaine-action-card{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.domaine-action-card .card{
-    margin-top: 5dvw;
-    width: 20em;
-    text-align:justify;
-    color: lightgray;
-}
-
-.domaine-action h2, .domaine-action a, .da-img{
-    color: var(--brown-theme);
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-}
-
-@media screen and (max-width:768px) { 
-    .domaine-action h1{
-        font-size:1.6em;
-    }
-    .domaine-action-card .card{
-        margin-top: 12dvw;
-    }
-}
-
-/*fin domaine action*/
 
 /*début mission*/
 
@@ -405,66 +351,6 @@ nav{
 }
 /*fin nouveautés*/
 
-/*soutenir l'assoc
-.soutien{
-    background: var(--light-theme);
-    color: var(--logo-theme);
-    text-align: center;
-    height: 34dvw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5dvw;
-}
-
-.soutien h1{
-    font-size: 2.5dvw;
-}
-
-.soutien-card{
-    display: flex;
-}
-
-.soutien .card{
-    border: solid transparent;
-    border-radius: 15px;
-    background-color: var(--logo-theme);
-    color: white;
-    width: 15dvw;
-    height: 15dvw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2.5dvw;
-}
-
-.soutien p{
-    font-size: 1.5dvw;
-    text-decoration: none;
-}
-
-.soutien a {
-    text-decoration: none;
-}
-
-@media screen and (max-width:768px) { 
-    .soutien{
-        height: 60dvw;
-    }
-    .soutien h1{
-        font-size: 5dvw;
-    }
-    .soutien .card{
-        width: 30dvw;
-        height: 30dvw;
-    }
-    .soutien .card p{
-        font-size: 3dvw;
-    }
-}
-
-fin soutenir l'assoc*/
-
 /*TESTIMONIALS*/
 .swiper{
     background-color: #F7E1C3;
@@ -508,95 +394,6 @@ fin soutenir l'assoc*/
 }
 
 /*FIN TESTIMONIALS*/
-
-/*footer*/
-footer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: var(--brown-theme);
-    color: white;
-    padding-top:  60px;
-    padding-bottom: 60px;
-    flex-wrap: wrap;
-}
-
-.footer-contact{
-    width: 30em;
-    font-family: var(--lora-font);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.footer-contact a{
-    color: white;
-    text-decoration: none;
-    margin-bottom: -2em;
-    font-family: var(--lora-font);
-}
-
-.footer-contact .tel{
-    margin-bottom: -2em;
-    margin-top: -2em;
-}
-
-.footer-contact h2{
-    margin-top: 3em;
-    font-family: var(--lora-font);
-    text-decoration: underline;
-}
-
-.social-media-card{
-    text-align: center;
-    width: 40%;
-}
-
-.footer-social-media-logo{
-    display: flex;
-    justify-content: space-between;
-}
-
-.social-media-card a{
-    color: var(--light-theme);
-}
-
-.newsletters{
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 20em;
-    width: 30em;
-}
-
-.newsletters input{
-    height: 2.5em;
-    width: 20em;
-    border-radius: 15px;
-    padding-left: 1em;
-}
-
-.newsletters button{
-    border: solid transparent;
-    background-color: var(--light-theme);
-    color: var(--brown-theme);
-    height: 2em;
-    width: 5em;
-    font-size: 1.2em;
-    border-radius: 30px;
-
-}
-
-@media screen and (max-width:480px) { 
-    footer{
-        padding: 1em 0 1em 0;
-    }
-}
-
-/*fin footer*/
 
 body{
     margin: 0;
