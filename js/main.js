@@ -33,7 +33,7 @@ let data_successfully_saved=`
 <h3>Merci à vous</h3>`;
 let header_mobile=`
 <div class="header-mobile">
-    <img src="rsc/logo_yysa.jpg" width="80dvw" height="70dvh" alt="logo"></img>
+    <img src="rsc/final-logo.png" width="80dvw" height="70dvh" alt="logo"></img>
     <h1>YYSA</h1>
     <div id="btn-menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="10dvw" height="10dvw" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -192,4 +192,6 @@ function activeDropDownListener(){
             menuButton.classList.remove('active');
         }
     });
-} 
+}
+
+// Carousel functionality moved to carousel.js

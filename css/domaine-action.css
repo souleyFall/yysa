@@ -1,10 +1,37 @@
 .domaine-action{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-    background: #fafafa;
+    margin: 4rem 0 0 0;
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 25%, #cbd5e1 50%, #e2e8f0 75%, #f1f5f9 100%);
     color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.domaine-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(238, 196, 135, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(115, 77, 18, 0.1) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.domaine-action::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(115,77,18,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.4;
+    z-index: 1;
 }
 
 .domaine-action .container {
@@ -15,41 +42,99 @@
 }
 
 .domaine-action h1 {
-    font-size: 2em;
-    color: #734D12;
-    margin-bottom: 2rem;
-    font-weight: 600;
+    font-size: 4em;
+    background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 50%, var(--light-theme) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4rem;
+    font-weight: 700;
     text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 20px rgba(238, 196, 135, 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 30px rgba(238, 196, 135, 0.6));
+    }
 }
 
 .domaine-action .domains-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 1.5rem;
+    gap: 3rem;
     margin-bottom: 2rem;
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .domaine-action .domain {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(133, 96, 67, 0.1);
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 3rem 2.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(238, 196, 135, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.domaine-action .domain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(238, 196, 135, 0.05), rgba(115, 77, 18, 0.05));
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .domaine-action .domain:hover {
-    box-shadow: 0 4px 16px rgba(133, 96, 67, 0.08);
-    transform: translateY(-2px);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 0 40px rgba(238, 196, 135, 0.2);
+}
+
+.domaine-action .domain:hover::before {
+    opacity: 1;
+}
+
+/* Centrer la dernière carte si elle est seule sur sa ligne */
+.domaine-action .domain:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 400px;
 }
 
 .domaine-action h2 {
-    font-size: 1.2em;
-    color: #734D12;
-    margin: 0 0 1rem 0;
+    font-size: 1.6em;
+    background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 1.5rem 0;
     display: flex;
     align-items: center;
-    font-weight: 600;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .domaine-action .icon {
@@ -58,19 +143,23 @@
 }
 
 .domaine-action .description {
-    font-size: 0.95em;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: #666;
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-weight: 500;
 }
 
 .domaine-action .actions-title {
-    font-size: 0.9em;
-    font-weight: 600;
-    color: #856043;
-    margin: 1rem 0 0.5rem 0;
+    font-size: 1.1em;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 1.5rem 0 1rem 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .domaine-action ul {
@@ -80,74 +169,174 @@
 }
 
 .domaine-action li {
-    background: rgba(238, 196, 135, 0.1);
-    margin: 0.3rem 0;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.9em;
-    color: #734D12;
-    transition: background-color 0.2s ease;
-    border-left: 2px solid transparent;
+    background: rgba(238, 196, 135, 0.15);
+    margin: 0.5rem 0;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-size: 1em;
+    color: var(--brown-theme);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 3px solid transparent;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.domaine-action li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(238, 196, 135, 0.1), rgba(115, 77, 18, 0.1));
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .domaine-action li:hover {
-    background: rgba(238, 196, 135, 0.2);
-    border-left-color: #856043;
+    background: rgba(238, 196, 135, 0.25);
+    border-left-color: var(--logo-theme);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(238, 196, 135, 0.2);
+}
+
+.domaine-action li:hover::before {
+    opacity: 1;
 }
 
 .domaine-action .quote-section {
-    background: white;
-    border-radius: 8px;
-    border: 1px solid rgba(133, 96, 67, 0.1);
-    margin-top: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(238, 196, 135, 0.3);
+    margin-top: 2rem;
     text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.domaine-action .quote-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .domaine-action .quote {
-    background: linear-gradient(135deg, rgba(133, 96, 67, 0.05) 0%, rgba(115, 77, 18, 0.05) 100%);
-    color: #734D12;
-    padding: 1rem;
-    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(238, 196, 135, 0.1) 0%, rgba(115, 77, 18, 0.1) 100%);
+    color: var(--brown-theme);
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
     font-style: italic;
-    border-left: 3px solid #EEC487;
+    border-left: 4px solid var(--light-theme);
+    position: relative;
+    overflow: hidden;
+}
+
+.domaine-action .quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(238, 196, 135, 0.05), rgba(115, 77, 18, 0.05));
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.domaine-action .quote:hover::before {
+    opacity: 1;
 }
 
 .domaine-action .quote-text {
-    font-size: 1em;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--brown-theme);
+    line-height: 1.6;
 }
 
 .domaine-action .quote-meaning {
-    font-size: 0.9em;
-    opacity: 0.8;
+    font-size: 1em;
+    opacity: 0.9;
     font-style: normal;
+    color: var(--logo-theme);
+    font-weight: 500;
+}
+
+/* Optimisation pour écrans larges - au moins 3 cartes par ligne */
+@media (min-width: 1200px) {
+    .domaine-action .domains-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1400px;
+    }
+    
+    .domaine-action .domain:nth-child(5) {
+        grid-column: 2;
+        justify-self: center;
+        max-width: 400px;
+    }
 }
 
 @media (max-width: 768px) {
     .domaine-action {
-        padding: 1rem;
+        padding: 3rem 0;
+        margin-top: 2rem;
     }
     
     .domaine-action .domains-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 2rem;
+        justify-content: center;
+        padding: 0 1rem;
     }
     
     .domaine-action .domain {
-        padding: 1rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Sur mobile, la règle de centrage de la dernière carte n'est pas nécessaire */
+    .domaine-action .domain:nth-child(5) {
+        grid-column: auto;
+        justify-self: auto;
+        max-width: none;
     }
     
     .domaine-action h1 {
-        font-size: 1.6em;
-        margin-bottom: 1.5rem;
+        font-size: 2.5em;
+        margin-bottom: 2rem;
     }
     
     .domaine-action h2 {
-        font-size: 1.1em;
+        font-size: 1.3em;
     }
     
     .domaine-action .description {
+        font-size: 1em;
+    }
+    
+    .domaine-action .actions-title {
+        font-size: 1em;
+    }
+    
+    .domaine-action li {
+        font-size: 0.9em;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .domaine-action .quote {
+        padding: 1.5rem 1rem;
+    }
+    
+    .domaine-action .quote-text {
+        font-size: 1.1em;
+    }
+    
+    .domaine-action .quote-meaning {
         font-size: 0.9em;
     }
 }
