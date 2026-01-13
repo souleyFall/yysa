@@ -13,8 +13,6 @@ body {
 .footer {
     background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 50%, var(--brown-theme) 100%);
     color: white;
-    padding: 4rem 0 0 0;
-    margin-top: 4rem;
     position: relative;
     overflow: hidden;
 }
@@ -358,11 +356,6 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .footer {
-        padding: 3rem 0 0 0;
-        margin-top: 3rem;
-    }
-
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 3rem;

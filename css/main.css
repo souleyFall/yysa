@@ -1,11 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 :root{
-    --brown-theme : #734D12;
-    --light-theme : #EEC487;
-    --logo-theme : #856043;
-    --dancing-style : 'Dancing Script', cursive;
+    /* Palette de couleurs principale */
+    --primary-light: #EEC487;      /* Beige/doré clair */
+    --primary-dark: #734D12;       /* Marron foncé */
+    --primary-medium: #856043;     /* Marron moyen */
+    --accent-orange: #C36940;      /* Orange/terracotta */
+    --accent-grey: #C1AF9C;        /* Gris/beige */
+    --dark-brown: #55362C;         /* Marron très foncé */
+    --white: #FFFFFF;
+    --black: #000000;
+    
+    /* Aliases pour la rétrocompatibilité */
+    --brown-theme: #734D12;
+    --light-theme: #EEC487;
+    --logo-theme: #856043;
+    
+    /* Polices */
+    --dancing-style: 'Dancing Script', cursive;
     --lora-font: "Lora", serif;
     --arimo-font: "Arimo", sans-serif;
+}
+
+*{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 }
 
 a{
@@ -25,7 +42,7 @@ a{
 
 .header-mobile h1{
     color: var(--light-theme);
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -88,7 +105,7 @@ a{
     font-weight: 600;
     display: block;
     transition: all 0.3s ease;
-    font-family: var(--lora-font);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 }
 
 .dropdown-menu a:hover {
@@ -105,9 +122,9 @@ a{
     justify-content: space-between;
     color: black;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-    padding: 35px 0px 0px 0px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid rgba(238, 196, 135, 0.2);
+    padding: 35px 0px 25px 0px;
+    box-shadow: 0 8px 20px rgba(115, 77, 18, 0.15);
+    border-bottom: 3px solid var(--primary-dark);
 }
 
 .contact::before {
@@ -125,9 +142,9 @@ a{
 
 .mail-tel{
     display: flex;
-    gap: 50px;
+    gap: 10px;
     width: 90dvw;
-    margin-left: 10dvw;
+    margin-left: 5dvw;
     position: relative;
     z-index: 2;
 }
@@ -135,7 +152,7 @@ a{
 .mail-tel a{
     text-decoration: none;
     font-weight: 700;
-    font-family: var(--lora-font);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     color: var(--brown-theme);
     display: flex;
     align-items: center;
@@ -167,7 +184,7 @@ a{
 nav a{
     color: white;
     text-decoration: none;
-    font-family: var(--lora-font);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     font-weight: 600;
     padding: 8px 15px;
     border-radius: 20px;
@@ -204,7 +221,7 @@ nav a:hover::before {
     display: flex;
     width: 180px;
     justify-content: space-around;
-    margin-right: 10dvw;
+    margin-right: 2dvw;
     position: relative;
     z-index: 2;
 }
@@ -250,7 +267,7 @@ nav a:hover::before {
     margin: -5em 0em 0em 7.5%;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 100%);
+    background: linear-gradient(135deg, #856043 0%, #856043 60%, #EEC487 100%);
     border-radius: 25px;
     z-index: 10;
     box-shadow: 
@@ -318,8 +335,8 @@ nav{
 /* Responsive pour maintenir la taille du logo */
 @media screen and (max-width: 1200px) {
     .barre-nav img {
-        width: 90px !important;
-        height: 100px !important;
+        width: 110px !important;
+        height: 120px !important;
         margin-left: 2em;
     }
 }
@@ -332,8 +349,8 @@ nav{
     }
     
     .barre-nav img {
-        width: 90px !important;
-        height: 100px !important;
+        width: 100px !important;
+        height: 110px !important;
         margin-left: 1.5em;
     }
     
@@ -352,8 +369,8 @@ nav{
     }
     
     .barre-nav img {
-        width: 90px !important;
-        height: 100px !important;
+        width: 100px !important;
+        height: 110px !important;
         margin-left: 1em;
     }
     
@@ -426,7 +443,7 @@ nav{
 
 .brand h1{
     font-size: 6rem;
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     font-weight: 700;
     margin-bottom: 2rem;
     background: linear-gradient(135deg, #ffffff 0%, #EEC487 50%, #ffffff 100%);
@@ -460,7 +477,7 @@ nav{
     padding: 1.2rem 2.5rem;
     font-size: 1.1rem;
     border-radius: 50px;
-    font-family: var(--lora-font);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -496,19 +513,19 @@ nav{
 }
 
 .brand a:first-of-type button{
-    background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-orange) 100%);
     color: white;
-    box-shadow: 0 8px 25px rgba(115, 77, 18, 0.3);
+    box-shadow: 0 12px 30px rgba(115, 77, 18, 0.35);
 }
 
 .brand a:first-of-type button:hover {
-    box-shadow: 0 15px 40px rgba(115, 77, 18, 0.4);
+    box-shadow: 0 18px 45px rgba(115, 77, 18, 0.45);
 }
 
 .brand a:last-of-type button{
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--brown-theme);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
     backdrop-filter: blur(10px);
 }
 
@@ -567,8 +584,9 @@ nav{
 /*début mission*/
 
 .missions{
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #e2e8f0 75%, #f8fafc 100%);
-    padding: 6rem 0;
+    background: linear-gradient(135deg, #f5f0eb 0%, #ede5dd 25%, #e5ddd5 50%, #ede5dd 75%, #f5f0eb 100%);
+    padding: 2rem 0;
+    margin-top: -1rem;
     position: relative;
     overflow: hidden;
 }
@@ -600,12 +618,12 @@ nav{
 
 .missions h1{
     text-align: center;
-    background: linear-gradient(135deg, var(--brown-theme) 0%, var(--logo-theme) 50%, var(--light-theme) 100%);
+    background: linear-gradient(135deg, #734D12 0%, #C36940 50%, #EEC487 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-size: 3.5em;
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     margin-bottom: 4rem;
     position: relative;
     z-index: 2;
@@ -845,7 +863,7 @@ nav{
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-size: 3.5em;
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     font-weight: 700;
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -919,7 +937,7 @@ nav{
 .nouveautés{
     background: linear-gradient(135deg, #4a5568 0%, #718096 25%, #a0aec0 50%, #718096 75%, #4a5568 100%);
     color: var(--brown-theme);
-    padding: 6rem 0;
+    padding: 3rem 0;
     margin-bottom: 0;
     position: relative;
     overflow: hidden;
@@ -966,7 +984,7 @@ nav{
 .nouveautés h1{
     font-size: 4em;
     text-align: center;
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background: linear-gradient(135deg, #EEC487 0%, #D4B896 50%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -979,7 +997,7 @@ nav{
 
 .nouveautés h2{
     margin-bottom: 1rem;
-    font-family: var(--lora-font);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background: linear-gradient(135deg, #EEC487 0%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1078,7 +1096,7 @@ nav{
 .swiper{
     background: linear-gradient(135deg, #8b7355 0%, #a68b5b 25%, #c4a484 50%, #a68b5b 75%, #8b7355 100%);
     position: relative;
-    padding: 6rem 0;
+    padding: 3rem 0;
     overflow: hidden;
 }
 
@@ -1111,7 +1129,7 @@ nav{
 .swiper h1{
     font-size: 3.5em;
     text-align: center;
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background: linear-gradient(135deg, #EEC487 0%, #D4B896 50%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1247,7 +1265,7 @@ nav{
     background-clip: text;
     font-size: 1.4em;
     margin-bottom: 0.5rem;
-    font-family: var(--lora-font);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -1550,7 +1568,7 @@ html, body {
     font-size: 2.2rem;
     color: var(--brown-theme);
     margin-bottom: 20px;
-    font-family: var(--dancing-style);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     text-align: center;
 }
 
@@ -1665,6 +1683,9 @@ html, body {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 15;
+    pointer-events: auto;
 }
 
 .carousel-prev:hover,
@@ -1732,6 +1753,79 @@ html, body {
     
     .carousel-controls {
         padding: 0 10px;
+    }
+}
+
+/* PODCASTS SECTION */
+.podcasts {
+    width: 100%;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #faf7f3 0%, #ede5dd 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.podcasts h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #734D12 0%, #C36940 50%, #EEC487 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.podcasts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    width: 85%;
+    max-width: 900px;
+    margin-top: 3rem;
+    padding: 0 2rem;
+}
+
+.podcast-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(85, 54, 44, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.podcast-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: none;
+}
+
+.podcast-video:hover {
+    box-shadow: 0 15px 50px rgba(85, 54, 44, 0.3);
+    transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px) {
+    .podcasts {
+        padding: 5rem 0;
+    }
+    
+    .podcasts h1 {
+        font-size: 2.5rem;
+    }
+    
+    .podcasts-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 

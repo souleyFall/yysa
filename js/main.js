@@ -33,7 +33,7 @@ let data_successfully_saved=`
 <h3>Merci à vous</h3>`;
 let header_mobile=`
 <div class="header-mobile">
-    <img src="rsc/final-logo.png" width="80dvw" height="70dvh" alt="logo"></img>
+    <img src="rsc/logo_yysa.jpg" width="80dvw" height="70dvh" alt="logo YYSA"></img>
     <h1>YYSA</h1>
     <div id="btn-menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="10dvw" height="10dvw" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -44,7 +44,7 @@ let header_mobile=`
         <ul>
             <li><a href="#">Accueil</a></li>
             <li><a href="#missions">Missions</a></li>
-            <li><a href="#nouveautes">Nouveautés</a></li>
+            <li><a href="#podcasts">Podcasts</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#">Faire un don</a></li>
             <li><a href="pages/form.html">Nous rejoindre</a></li>
@@ -96,11 +96,11 @@ let header_laptop=`
 
 <!------------- Début section logo-nav ------------>
 <div class="barre-nav">
-    <img src="rsc/final-logo.png" width="90" height="100" alt="logo">
+    <img src="rsc/logo_yysa.jpg" width="120" height="130" alt="logo YYSA">
     <nav>
         <a href="#">ACCUEIL</a>
         <a href="#missions">MISSIONS</a>
-        <a href="#nouveautes">NOUVEAUTE</a>
+        <a href="#podcasts">PODCAST</a>
         <a href="#contact">CONTACT</a>
     </nav>
 </div>
