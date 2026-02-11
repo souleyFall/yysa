@@ -203,7 +203,7 @@ function sendEmailPopup(event) {
         setTimeout(() => close_form(), 3000);
     }
     // Envoi à l'endpoint newsletter
-    fetch("http://localhost:5000/send-newsletter-email", {
+    fetch("https://yysa.zeabur.app/send-newsletter-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
