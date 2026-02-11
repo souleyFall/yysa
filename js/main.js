@@ -58,7 +58,6 @@ let header_mobile=`
             <li><a href="#contact">Contact</a></li>
             <li><a href="#" onclick="openPaymentModal()">Faire un don</a></li>
             <li><a href="pages/form.html">Nous rejoindre</a></li>
-            <li><a href="#">À propos de nous</a></li>
         </ul>
     </div>
 </div>`;
