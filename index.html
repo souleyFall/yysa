@@ -80,9 +80,7 @@
                     <a href="pages/form.html">
                         <button type="button" class="brand-button">NOUS REJOINDRE</button>
                     </a>
-                    <a href="">
-                        <button type="button" class="brand-button">FAIRE UN DON</button>
-                    </a>
+                    <button type="button" class="brand-button" id="donBtn">FAIRE UN DON</button>
                 </div>
             </div>
             <div class="brand-background">
@@ -270,7 +268,7 @@
             <!-- Mission 2: Seit Settal -->
             <div class="mission-section" data-aos="fade-up">
                 <div class="mission-content">
-                    <h2>Seit settal</h2>
+                    <h2>Set settal</h2>
                     <p>
                         Chaque premier samedi du mois, Yeewu Yittel Sunu Askan mène une journée de nettoyage communautaire dans différents quartiers, en partenariat avec les Patriotes Riders.
                         Cette action collective encourage la responsabilité citoyenne et contribue à des espaces publics plus propres et accueillants.
@@ -320,7 +318,7 @@
                 <div class="mission-content">
                     <h2>Journey to Adulthood</h2>
                     <p>
-                        nous accompagnons la jeunesse sénégalaise dans sa transition vers l’âge adulte grâce à des webinaires et des programmes en ligne.
+                        Nous accompagnons la jeunesse sénégalaise dans sa transition vers l’âge adulte grâce à des webinaires et des programmes en ligne.
                         Notre chaîne YouTube propose deux formats phares :
                         Voix Inspirantes, où des invités partagent leurs parcours et expériences.
                         Youth Unfiltered Talk, un podcast créé par les jeunes et pour les jeunes, donnant la parole à leurs idées et visions.
@@ -554,15 +552,15 @@
                 <!-- Newsletter Section -->
                 <div class="footer-section">
                     <h3>S'inscrire à notre Newsletter</h3>
-                    <form class="newsletter-form">
+                    <form class="newsletter-form" onsubmit="sendEmail(event)">
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Prénom" required>
+                            <input type="text" class="form-input" placeholder="Prénom" id="nl_prenom" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Nom" required>
+                            <input type="text" class="form-input" placeholder="Nom" id="nl_nom" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="E-mail" required>
+                            <input type="email" class="form-input" placeholder="E-mail" id="nl_email" required>
                         </div>
                         <button type="submit" class="submit-btn">Envoyer</button>
                     </form>
@@ -570,7 +568,7 @@
 
                 <!-- Contact Section -->
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3 id="contact">Contact</h3>
                     <div class="contact-info">
                         <div class="contact-item">
                             <span class="contact-icon">
@@ -614,7 +612,7 @@
                         <a href="pages/form.html">
                             <button class="donate-btn">Nous rejoindre</button>
                         </a>
-                        <button class="donate-btn">Faire un don</button>
+                        <button class="donate-btn" onclick="openPaymentModal()">Faire un don</button>
                     </div>
                 </div>
             </div>
@@ -661,5 +659,48 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
     <script src="js/carousel.js"></script>
+
+    <!-- Popup Moyens de Paiement -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-modal-content">
+            <button type="button" class="payment-close-btn" id="closePaymentBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg>
+            </button>
+            <div class="payment-header">
+                <h2>Choisissez votre moyen de paiement</h2>
+                <p>Soutenir YYSA en quelques clics</p>
+            </div>
+            <div class="payment-methods">
+                <a href="https://pay.wave.com/m/M_sn_rKMLlqX4Nmcp/c/sn/" class="payment-card" target="_blank">
+                    <div class="payment-card-logo">
+                        <img src="rsc/wave.png" alt="Wave">
+                    </div>
+                    <div class="payment-card-info">
+                        <h3>Wave Money</h3>
+                        <p>Paiement mobile instantané</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                    </svg>
+                </a>
+                <a href="https://www.paypal.me/YeewuYittelSunuAskan" class="payment-card" target="_blank">
+                    <div class="payment-card-logo">
+                        <img src="rsc/paypal.png" alt="PayPal">
+                    </div>
+                    <div class="payment-card-info">
+                        <h3>PayPal</h3>
+                        <p>Plateforme de paiement sécurisée</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="paymentOverlay" class="payment-overlay"></div>
+
 </body>
 </html>

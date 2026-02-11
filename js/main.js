@@ -1,36 +1,46 @@
-resetInputs();
 let header = document.querySelector("header");
+
+// Initialiser resetInputs() seulement si la page le requiert
+if (typeof resetInputs === 'undefined') {
+    function resetInputs(){}
+}
+
 let formulaire= `
-<div id="overlay">
-    <div id="form">
-        <button type="button" id="icon-close" onclick="close_form()">
-            <div id="icon-close-hover">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                </svg>
-            </div>
+<div id="overlay" class="newsletter-overlay">
+    <div id="form" class="newsletter-popup">
+        <button type="button" id="icon-close" class="newsletter-close" onclick="close_form()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
         </button>
-        <form class="form">
-            <span class="title">s'inscire à notre newsletter</span>
-            <div class="form-container">
-                <input id="prenom" type="text" class="input" placeholder="Prénom">
-                <input id="nom" type="text" class="input" placeholder="Nom">
-                <input id="mail-in-popup" type="email" class="input" placeholder="Email">
-            </div>
-            <button type="button" onclick="sendEmail()">Envoyer</button>
-        </form>
+        <div class="newsletter-content">
+            <h2 class="newsletter-title">Rejoignez notre newsletter</h2>
+            <p class="newsletter-subtitle">Restez informé de nos dernières actualités et événements</p>
+            <form class="form" onsubmit="return sendEmailPopup(event)">
+                <div class="form-container">
+                    <input id="prenom" type="text" class="input" placeholder="Prénom" required>
+                    <input id="nom" type="text" class="input" placeholder="Nom" required>
+                    <input id="mail-in-popup" type="email" class="input" placeholder="Email" required>
+                </div>
+                <button type="submit" class="btn-send">S'inscrire</button>
+            </form>
+            <p class="newsletter-notice">Nous respectons votre vie privée</p>
+        </div>
     </div>
 </div>
 `
 let data_successfully_saved=`
-<CENTER>
-    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
-    </svg>
-<CENTER>
-<h2>Votre demande a bien été transmis</h2>
-<h3>Merci à vous</h3>`;
+<div class="newsletter-success">
+    <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#50C878" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+        </svg>
+    </div>
+    <h3>Inscription réussie !</h3>
+    <p>Merci pour votre intérêt.</p>
+</div>
+`;
 let header_mobile=`
 <div class="header-mobile">
     <img src="rsc/logo_yysa.jpg" width="80dvw" height="70dvh" alt="logo YYSA"></img>
@@ -46,7 +56,7 @@ let header_mobile=`
             <li><a href="#missions">Missions</a></li>
             <li><a href="#podcasts">Podcasts</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#">Faire un don</a></li>
+            <li><a href="#" onclick="openPaymentModal()">Faire un don</a></li>
             <li><a href="pages/form.html">Nous rejoindre</a></li>
             <li><a href="#">À propos de nous</a></li>
         </ul>
@@ -117,16 +127,19 @@ function open_form(){
 
 function setHeader(){
     if(window.innerWidth<768){
-        header.innerHTML = header_mobile;
+        if(header) header.innerHTML = header_mobile;
         activeDropDownListener();
     }
     else{
-        header.innerHTML = header_laptop;
+        if(header) header.innerHTML = header_laptop;
     }
 }
-setHeader();
 
-window.addEventListener("resize", setHeader);
+// N'exécuter que sur index.html
+if(header) {
+    setHeader();
+    window.addEventListener("resize", setHeader);
+}
 
 function aosInit() {
     AOS.init({
@@ -155,20 +168,214 @@ const swiper = new Swiper('.swiper', {
     },
   });
 
-function sendEmail() {
-    fetch("http://45.147.251.120:5000/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ 
-        PRENOM : document.getElementById("prenom").value, 
-        NOM : document.getElementById("nom").value, 
-        EMAIL : document.getElementById("mail-in-popup").value, 
-        TEL : document.getElementById("tel").value }),
+// ===== NEWSLETTER POPUP (popup qui apparaît au scroll) =====
+function sendEmailPopup(event) {
+    event.preventDefault();
+    
+    const prenom = document.getElementById("prenom").value.trim();
+    const nom = document.getElementById("nom").value.trim();
+    const email = document.getElementById("mail-in-popup").value.trim();
+    
+    // Validation
+    if (!prenom || !nom || !email) {
+        alert("Veuillez remplir tous les champs");
+        return false;
+    }
+    
+    if (prenom.length < 2) {
+        alert("Le prénom doit contenir au moins 2 caractères");
+        return false;
+    }
+    
+    if (nom.length < 2) {
+        alert("Le nom doit contenir au least 2 caractères");
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Veuillez entrer une adresse email valide");
+        return false;
+    }
+
+    const formContainer = document.getElementById("form");
+    if (formContainer) {
+        formContainer.innerHTML = data_successfully_saved;
+        setTimeout(() => close_form(), 3000);
+    }
+    // Envoi à l'endpoint newsletter
+    fetch("http://localhost:5000/send-newsletter-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+            PRENOM: prenom, 
+            NOM: nom, 
+            EMAIL: email,
+        }),
     })
     .then((res) => res.json())
-    .then((data) => alert("données enregistrées"))
-    .catch((err) => console.error("Erreur:", err)); 
-    document.querySelector("form").innerHTML=data_successfully_saved;
+    .catch((err) => {
+        console.error("Erreur:", err);
+        alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
+    });
+    
+    return false;
+}
+
+// ===== NEWSLETTER FOOTER (formulaire du pied de page) =====
+function sendEmail(event) {
+    event.preventDefault();
+    
+    const prenom = document.getElementById("nl_prenom").value.trim();
+    const nom = document.getElementById("nl_nom").value.trim();
+    const email = document.getElementById("nl_email").value.trim();
+    
+    // Validation
+    if (!prenom || !nom || !email) {
+        alert("Veuillez remplir tous les champs");
+        return false;
+    }
+    
+    if (prenom.length < 2) {
+        alert("Le prénom doit contenir au moins 2 caractères");
+        return false;
+    }
+    
+    if (nom.length < 2) {
+        alert("Le nom doit contenir au moins 2 caractères");
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Veuillez entrer une adresse email valide");
+        return false;
+    }
+    
+    event.target.reset();
+    // Envoi à l'endpoint newsletter
+    fetch("http://localhost:5000/send-newsletter-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+            PRENOM: prenom, 
+            NOM: nom, 
+            EMAIL: email,
+        }),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        alert("✅ Merci pour votre inscription à la newsletter ! Vous recevrez bientôt nos actualités.");
+    })
+    .catch((err) => {
+        console.error("Erreur:", err);
+        alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
+    });
+    
+    return false;
+}
+
+// ===== NOUVEAU MEMBRE EMAIL - Ancienne version (garde-fou) =====
+function sendNewMemberEmail(event) {
+    event.preventDefault();
+    
+    const prenom = document.getElementById("prenom_member") ? document.getElementById("prenom_member").value.trim() : "";
+    const nom = document.getElementById("nom_member") ? document.getElementById("nom_member").value.trim() : "";
+    const email = document.getElementById("email_member") ? document.getElementById("email_member").value.trim() : "";
+    const tel = document.getElementById("tel_member") ? document.getElementById("tel_member").value.trim() : "";
+    
+    // Validation
+    if (!prenom || !nom || !email || !tel) {
+        alert("Veuillez remplir tous les champs");
+        return false;
+    }
+    
+    if (prenom.length < 2) {
+        alert("Le prénom doit contenir au moins 2 caractères");
+        return false;
+    }
+    
+    if (nom.length < 2) {
+        alert("Le nom doit contenir au moins 2 caractères");
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Veuillez entrer une adresse email valide");
+        return false;
+    }
+    
+    const telRegex = /^[\d\s\-\+]+$/;
+    if (!telRegex.test(tel)) {
+        alert("Veuillez entrer un numéro de téléphone valide");
+        return false;
+    }
+
+    // Envoi à l'endpoint adhésion
+    fetch("http://localhost:5000/send-new-member-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+            PRENOM: prenom, 
+            NOM: nom, 
+            EMAIL: email,
+            TEL: tel,
+        }),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        alert("✅ Votre inscription a été envoyée avec succès ! Un membre de YYSA vous contactera bientôt.");
+        // Réinitialiser le formulaire si nécessaire
+        if (document.getElementById("adhesionForm")) {
+            document.getElementById("adhesionForm").reset();
+        }
+    })
+    .catch((err) => {
+        console.error("Erreur:", err);
+        alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.");
+    });
+    
+    return false;
+}
+
+// ===== NOUVEAU MEMBRE EMAIL - VERSION COMPLÈTE (avec toutes les infos du formulaire) =====
+function sendNewMemberEmailFull(formData) {
+    // Validation basique
+    if (!formData.prenom || !formData.nom || !formData.email || !formData.phone) {
+        alert("Erreur : données manquantes");
+        console.error("Données manquantes:", formData);
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+        alert("Veuillez entrer une adresse email valide");
+        return false;
+    }
+
+    console.log("📤 Envoi des données:", formData);
+
+    // Envoi à l'endpoint adhésion complet
+    fetch("http://localhost:5000/send-new-member-email-full", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+    })
+    .then((res) => {
+        console.log("Réponse du serveur:", res.status);
+        return res.json();
+    })
+    .then((data) => {
+        console.log("✅ Réponse:", data);
+        alert("✅ Merci pour votre inscription ! Un membre de l'équipe YYSA vous contactera très bientôt.");
+    })
+    .catch((err) => {
+        console.error("❌ Erreur complète:", err);
+        alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer.\n\nVérifiez la console (F12) pour plus de détails.");
+    });
+    
+    return false;
 }
 
 function resetInputs(){
@@ -195,3 +402,40 @@ function activeDropDownListener(){
 }
 
 // Carousel functionality moved to carousel.js
+// ===== POPUP PAIEMENT =====
+const donBtn = document.getElementById('donBtn');
+const paymentModal = document.getElementById('paymentModal');
+const paymentOverlay = document.getElementById('paymentOverlay');
+const closePaymentBtn = document.getElementById('closePaymentBtn');
+
+function openPaymentModal() {
+    paymentModal.style.display = 'block';
+    paymentOverlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePaymentModal() {
+    paymentModal.style.display = 'none';
+    paymentOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Event listeners pour la popup de paiement
+if (donBtn) {
+    donBtn.addEventListener('click', openPaymentModal);
+}
+
+if (closePaymentBtn) {
+    closePaymentBtn.addEventListener('click', closePaymentModal);
+}
+
+if (paymentOverlay) {
+    paymentOverlay.addEventListener('click', closePaymentModal);
+}
+
+// Fermer la popup avec la touche Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && paymentModal && paymentModal.style.display === 'block') {
+        closePaymentModal();
+    }
+});
