@@ -368,6 +368,7 @@ app.post('/send-new-member-email-full', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('Serveur en écoute sur le port 5000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
