@@ -253,7 +253,7 @@ function sendEmail(event) {
     
     event.target.reset();
     // Envoi à l'endpoint newsletter
-    fetch("http://localhost:5000/send-newsletter-email", {
+    fetch("https://yysa.zeabur.app/send-newsletter-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -312,7 +312,7 @@ function sendNewMemberEmail(event) {
     }
 
     // Envoi à l'endpoint adhésion
-    fetch("http://localhost:5000/send-new-member-email", {
+    fetch("https://yysa.zeabur.app/send-new-member-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -356,7 +356,7 @@ function sendNewMemberEmailFull(formData) {
     console.log("📤 Envoi des données:", formData);
 
     // Envoi à l'endpoint adhésion complet
-    fetch("http://localhost:5000/send-new-member-email-full", {
+    fetch("https://yysa.zeabur.app/send-new-member-email-full", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
